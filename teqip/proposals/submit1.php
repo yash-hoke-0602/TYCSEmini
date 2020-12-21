@@ -8,7 +8,7 @@
         $clg=$_POST['college'];
         $formid="f1.".$_SESSION['userid'].".".time();
         
-        $sql0="SELECT * FROM form1 WHERE formid=? and formstatus=?;";
+        $sql0="SELECT * FROM form1 WHERE submittedby=? and formstatus=?;";
         $stmt0=mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt0,$sql0))
         {
@@ -18,7 +18,7 @@
         else
         {
             $formstatus='pending';
-            mysqli_stmt_bind_param($stmt0,"ss",$formid,$formstatus);
+            mysqli_stmt_bind_param($stmt0,"ss",$_SESSION['email'],$formstatus);
             mysqli_stmt_execute($stmt0);
             mysqli_stmt_store_result($stmt0);
             $check=mysqli_stmt_num_rows($stmt0);
@@ -29,7 +29,7 @@
             }
             else
             {
-                $sql="INSERT INTO form1 (formid,stuname,stuadd,stuclg,formstatus) VALUES (?,?,?,?,?);";
+                $sql="INSERT INTO form1 (formid,stuname,stuadd,stuclg,formstatus,submittedby) VALUES (?,?,?,?,?,?);";
                 $stmt=mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt,$sql))
                 {
@@ -39,7 +39,7 @@
                 else
                 {
                     
-                    mysqli_stmt_bind_param($stmt,"sssss",$formid,$name,$address,$clg,$formstatus);
+                    mysqli_stmt_bind_param($stmt,"ssssss",$formid,$name,$address,$clg,$formstatus,$_SESSION['email']);
                     mysqli_stmt_execute($stmt);
                     $sql="INSERT INTO ".$_POST['sendoption']." (formtype,formid,submittedby,approvedby) VALUES (?,?,?,?);";
                     

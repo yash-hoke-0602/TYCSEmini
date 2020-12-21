@@ -1,0 +1,25 @@
+teqip DB QUERRY
+
+// table form1
+
+CREATE TABLE form1 (formid varchar(50),stuname varchar (50),stuadd varchar(50),stuclg varchar(50),formstatus varchar(50),submittedby varchar(50));
+
+// table admin1
+
+CREATE TABLE admin1 (formtype varchar(50),formid varchar(50),submittedby varchar(50),approvedby varchar(50));
+
+// table faculty1
+
+CREATE TABLE faculty1 (formtype varchar(50),formid varchar(50),submittedby varchar(50),approvedby varchar(50));
+
+// table approvedforms
+
+CREATE TABLE approvedforms (formtype varchar(50),formid varchar(50),submittedby varchar(50),approvedby varchar(50));
+
+// table rejectedforms
+
+CREATE TABLE rejectedforms (formtype varchar(50),formid varchar(50),submittedby varchar(50),approvedby varchar(50));
+
+// table users
+
+CREATE TABLE users (userid int(11) AUTO_INCREAMENT PRIMARY KEY,emailid varchar(50),userpwd longtext,usertype varchar(20));
