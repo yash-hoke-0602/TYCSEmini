@@ -7,6 +7,8 @@
         $result1=mysqli_query($conn,$sql);
         $check=mysqli_num_rows($result1);
         $i=1;
+        echo '<a href="../home.php"> <button > Home</button> </a>';
+        echo "<br>";
         if($check > 0)
         {
             //echo '<form action="administrator.php" method="post">';
@@ -88,6 +90,8 @@
                                 
                                 $sql2 = "UPDATE ".$row['formtype']." SET formstatus='approved' WHERE formid='".$formid."';";
                                 mysqli_query($conn, $sql2);
+                                header("Location: administrator.php");
+                                exit();
                             }
 
                         }
@@ -120,6 +124,8 @@
                                 
                                 $sql2 = "UPDATE ".$row['formtype']." SET formstatus='rejected' WHERE formid='".$formid."';";
                                 mysqli_query($conn, $sql2); 
+                                header("Location: administrator.php");
+                                exit();
                             }
                         }
                     }
@@ -127,12 +133,10 @@
                     echo '<hr>';
                 }    
             //echo '</form>';
-            echo '<a href="../home.php"> <button > Home</button> </a>';
         }
         else
         {
             echo "No forms to be verified";
-            echo '<a href="../home.php"> <button > Home</button> </a>';
         }
     }
     else

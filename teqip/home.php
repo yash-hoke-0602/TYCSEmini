@@ -7,7 +7,7 @@
     }
     else
     {
-        header("Location: /Login/login.php");
+        header("Location: Login/login.php");
         exit();
     }
 
