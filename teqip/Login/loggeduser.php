@@ -1,13 +1,6 @@
 <?php
     if(isset($_POST['login-button']))
     {
-        session_start();
-        //already logged in
-        if(isset($_SESSION['userid']))
-        {
-            header("Location: ../home.php");
-            exit();
-        }
         require "../includes/db.php";
         $user=$_POST['email'];
         $pwd=$_POST['password'];
@@ -34,9 +27,9 @@
                 }
                 else if($pwdCheck==true)
                 {
+                    session_start();
                     $_SESSION['userid']=$row['userid'];
                     $_SESSION['email']=$row['emailid'];
-                    $_SESSION['usertype']=$row['usertype'];
                     header("Location: ../home.php");
                     exit();
                 }

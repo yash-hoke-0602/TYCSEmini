@@ -11,10 +11,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
     <title>Register</title>
+    <style type="text/css">
+           .home {
+  background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+#log{
+   
+    padding:60px 40px;
+    -webkit-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+
+}
+    </style>
 </head>
-<body>
-    <form action="newuser.php" method="post">
+<body class="home">
+    <div class="container-fluid">
+        <div class="row">
+            <div clas="col-md-4 col-sm-4 col-xs-12"></div>
+                     <div clas="col-md-4 col-sm-4 col-xs-12">
+    <form action="newuser.php" method="post" id=log>
+        <h1>Registration Form TEQIP-III</h1>
         <?php
             if(isset($_GET['error']))
             {
@@ -33,27 +69,32 @@
                 if($_GET['error']=="confirmpwd")
                 {
                     echo "Please Confirm the password<br>";
-                    echo '<input type="text" name="email" placeholder="Enter Email" required value='.$_GET['email'].'><br>';
+                    echo '<div class="form-group"><input type="text" name="email" class="form-control"  placeholder="Enter Email" required value='.$_GET['email'].'></div><br>';
                 }
                 else
                 {
-                    echo '<input type="text" name="email" placeholder="Enter Email" required>
+                    echo '<div class="form-group"><input type="text" name="email" class="form-control"  placeholder="Enter Email" required></div>
                     <br>';
                 }
             }
             else
             {
-                echo '<input type="text" name="email" placeholder="Enter Email" required>
+                echo '<div class="form-group"><input type="text" name="email" class="form-control"  placeholder="Enter Email" required></div>
                 <br>';
             }
         ?>
-        <input type="password" name="password" placeholder="Enter Password" required>
+        <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
         <br>
-        <input type="password" name="re-password" placeholder="Confirm Password" required>
-        <br>
-        <button name="submit-button">Register</button>
+        <input type="password" class="form-control" name="re-password" placeholder="Confirm Password" required>
+        <br></div>
+        <button name="submit-button" class="btn btn-success btn-block">Register</button>
         
     </form>
+</div>
+</div>
+</div>
+
 </body>
 </html>
 
