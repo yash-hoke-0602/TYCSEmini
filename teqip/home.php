@@ -7,8 +7,20 @@
     }
     else
     {
-        header("Location: index.php");
+        header("Location: Login/login.php");
         exit();
+    }
+
+    if($_SESSION['usertype']=="admin")
+    {
+        echo '<br><a href="proposals/administrator.php"><button name="check-button">Received Proposals</button> </a>';
+        echo '<br><a href="proposals/approvedforms.php"><button name="check-button1">Approved Proposals</button> </a>';
+        echo '<br><a href="proposals/rejectedforms.php"><button name="check-button2">Rejected Proposals</button> </a>';
+    }
+
+    if($_SESSION['usertype']=="student")
+    {
+        echo '<br><a href="proposals/formstatus.php"><button name="check-button3">Form status</button> </a>';
     }
 ?>
 
@@ -23,7 +35,7 @@
     <form action="logout.php" method="get">
         <button name="logout-button">Logout</button>
     </form>
-    <a href="profile.php"><button name="profile-button">Profile</button> </a>
+    <a href="profile.php"><button name="profile-button">Profile</button> </a> <br>
     <a href="proposal.php"><button name="proposal-button">proposals</button> </a>
     
 </body>

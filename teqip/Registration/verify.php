@@ -6,7 +6,7 @@
     {
         if($_POST['user-otp']==$_SESSION['otp'])
         {
-            $sql="INSERT INTO users (emailid,userpwd) VALUES (?,?);";
+            $sql="INSERT INTO users (emailid,userpwd,usertype) VALUES (?,?,?);";
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
             {
@@ -15,8 +15,8 @@
             }
             else
             {
-                    
-                mysqli_stmt_bind_param($stmt,"ss",$_SESSION['userEmail'],$_SESSION['userPWD']);
+                $usertype="student";
+                mysqli_stmt_bind_param($stmt,"sss",$_SESSION['userEmail'],$_SESSION['userPWD'],$usertype);
                 mysqli_stmt_execute($stmt);
                 echo "Registered Successfully";
             }
