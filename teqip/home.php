@@ -14,8 +14,13 @@
     if($_SESSION['usertype']=="admin")
     {
         echo '<br><a href="proposals/administrator.php"><button name="check-button">Received Proposals</button> </a>';
-        echo '<br><a href="proposals/approvedforms.php"><button name="check-button2">Approved Proposals</button> </a>';
-        echo '<br><a href="proposals/rejectedforms.php"><button name="check-button1">Rejected Proposals</button> </a>';
+        echo '<br><a href="proposals/approvedforms.php"><button name="check-button1">Approved Proposals</button> </a>';
+        echo '<br><a href="proposals/rejectedforms.php"><button name="check-button2">Rejected Proposals</button> </a>';
+    }
+
+    if($_SESSION['usertype']=="student")
+    {
+        echo '<br><a href="proposals/formstatus.php"><button name="check-button3">Form status</button> </a>';
     }
 ?>
 
