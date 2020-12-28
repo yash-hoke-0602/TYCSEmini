@@ -15,10 +15,11 @@
             }
             else
             {
-                $usertype="student";
+                    
+                     $usertype="student";
                 mysqli_stmt_bind_param($stmt,"sss",$_SESSION['userEmail'],$_SESSION['userPWD'],$usertype);
                 mysqli_stmt_execute($stmt);
-                echo "Registered Successfully";
+                echo "<p><b>Registered Successfully</b></p>";
             }
 
             session_unset();
@@ -46,10 +47,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+   
     <title>Document</title>
+    <style type="text/css">
+        p{
+            color:green;
+        }
+            #log{
+   
+    padding:60px 40px;
+    -webkit-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
+
+}
+      .home {
+  background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+    </style>
 </head>
-<body>
+<body class="home">
     <br>
-    <a href="../Login/login.php"><button>Login</button></a>
+     <div class="container-fluid">
+        <div class="row">
+            <div clas="col-md-4 col-sm-4 col-xs-12"></div>
+                     <div clas="col-md-4 col-sm-4 col-xs-12">
+                        <form action="../Login/login.php" id="log">
+    <a href="../Login/login.php"><button name="login-button" class="btn btn-success btn-block">Login</button></a>
+    </form>
+    </div>
+</div>
+</div>
 </body>
 </html>

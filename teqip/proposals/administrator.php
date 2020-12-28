@@ -1,3 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adminstrator</title>
+    <style type="text/css">
+        .s button:hover {
+  background-color: green;
+  color: white;
+
+}
+.k button:hover {
+  background-color: red;
+color: white;
+}
+.f button:hover{
+background-color: pink;
+
+}
+.z{
+ background-color: #ADD8E6;
+}
+    </style>
+
+
+</head>
+<body>
+    <div class="z">
+        
 <?php
     session_start();
     if(isset($_SESSION['userid']) && $_SESSION['usertype']=="admin")
@@ -7,7 +38,7 @@
         $result1=mysqli_query($conn,$sql);
         $check=mysqli_num_rows($result1);
         $i=1;
-        echo '<a href="../home.php"> <button > Home</button> </a>';
+        echo '<div class="f"><a href="../home.php"> <button > Home</button> </a></div>';
         echo "<br>";
         if($check > 0)
         {
@@ -50,14 +81,14 @@
                         }
                         else
                         {
-                            echo '<a href="administrator.php?approved='.$id.'" ><button name="'.$id.'">Approve</button></a>';
-                            echo '<a href="administrator.php?rejected='.$id.'" ><button name="'.$id.'">Reject</button></a>';
+                            echo '<div class="s"><a href="administrator.php?approved='.$id.'" ><button name="'.$id.'">Approve</button></a></div><br>';
+                            echo '<div class="k"><a href="administrator.php?rejected='.$id.'" ><button name="'.$id.'">Reject</button></a></div>';
                         }
                     }
                     else
                     {
-                        echo '<a href="administrator.php?approved='.$id.'" ><button name="'.$id.'">Approve</button></a>';
-                        echo '<a href="administrator.php?rejected='.$id.'" ><button name="'.$id.'">Reject</button></a>';
+                        echo '<div class="s"><a href="administrator.php?approved='.$id.'" ><button name="'.$id.'">Approve</button></a></div><br>';
+                        echo '<div class="k"><a href="administrator.php?rejected='.$id.'" ><button name="'.$id.'">Reject</button></a></div>';
                     }
                     echo '<hr>';
                     if(isset($_GET['approved']))
@@ -145,3 +176,9 @@
         exit();
     }
 ?>
+
+
+    </div>
+
+</body>
+</html>

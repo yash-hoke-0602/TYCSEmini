@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form status</title>
+    <style type="text/css">
+        .s button:hover{
+            background-color: green;
+            color: white;
+        }
+        .z {
+            background-color: #ADD8E6;
+        }
+    </style>
 </head>
 <body>
     <form action="formstatus.php" method="post">
+           <div class="s">
         <select name="formtype" >
             <option value="form1">Form1</option>
             <option value="form2">Form2</option>
         </select>
+     
         <button name="show-button">Show</button>
+        </div>
     </form>
-</body>
-</html>
-
-<?php
+    <div class="z">
+    <?php
     session_start();
     if(isset($_SESSION['userid']) && $_SESSION['usertype']=="student")
     {
@@ -63,3 +73,7 @@
         exit();
     }
 ?>
+</div>
+</body>
+</html>
+
