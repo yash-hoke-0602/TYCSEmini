@@ -23,11 +23,3 @@ CREATE TABLE rejectedforms (formtype varchar(50),formid varchar(50),submittedby 
 // table users
 
 CREATE TABLE users (userid int(11) AUTO_INCREAMENT PRIMARY KEY,emailid varchar(50),userpwd longtext,usertype varchar(20));
-
-// table grpReimberseStuData
-
-CREATE TABLE grpReimberseStuData (srno int(11) AUTO_INCREMENT PRIMARY KEY,formid varchar(30),FullName varchar(50),PRN varchar(30));
-
-//table groupReimbersement
-
-CREATE TABLE groupReimbersement (formid varchar(50),studyYear varchar(50),deptName varchar(50),eventDays varchar(50),events varchar(50),eventLocation varchar(50) ,startDate varchar(50),endDate varchar(50),expenseType varchar(50),participantNum varchar(50),NameOfRecpient varchar(50),formstatus varchar(50),submittedby varchar(50));
