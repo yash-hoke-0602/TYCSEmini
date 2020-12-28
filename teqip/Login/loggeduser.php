@@ -34,7 +34,6 @@
                 }
                 else if($pwdCheck==true)
                 {
-                    session_start();
                     $_SESSION['userid']=$row['userid'];
                     $_SESSION['email']=$row['emailid'];
                     $_SESSION['usertype']=$row['usertype'];
