@@ -1,4 +1,19 @@
-<?php
+
+<!DOCTYPE html>
+    <html>
+    <head  lang="en">
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rejected Forms</title>
+        <style type="text/css">
+            .z{
+                background-color: tomato;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="z">
+            <?php
     session_start();
 
     if(isset($_SESSION['userid']) && $_SESSION['usertype']=='admin')
@@ -56,3 +71,11 @@
         header("Location: ../Login/login.php");
         exit();
     }
+?>
+
+
+            
+        </div>
+    
+    </body>
+    </html>    

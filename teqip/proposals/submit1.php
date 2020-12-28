@@ -1,3 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+    <title>Submit</title>
+    <style type="text/css">
+        p{
+            align-content: center;
+        }
+        .home {
+  background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.s button:hover{
+  background-color: green;
+  color: white;
+
+
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+    </style>
+
+</head>
+<body class="home">
+    <div class="z">
 <?php
     session_start();
     if(isset($_SESSION['userid']) && isset($_POST['submit-button']))
@@ -56,8 +99,8 @@
                         $approveby="none";
                         mysqli_stmt_bind_param($stmt,"ssss",$formtype,$formid,$submitby,$approveby);
                         mysqli_stmt_execute($stmt);
-                        echo "Form submitted Successfully";
-                        echo '<a href="../home.php"><button>Home</button></a>';
+                        echo "<b><p>Form submitted Successfully</p><b>";
+                        echo '<div class="s"><p><a href="../home.php"><button>Home</button></a></p><div>';
                     }
                 }
             }
@@ -69,3 +112,6 @@
         exit();
     }
 ?>
+</div>
+</body>
+</html>
