@@ -28,11 +28,12 @@
                 }
                 else
                 {
-                     //check for existing user with same email
-                    $sql="SELECT * FROM users WHERE emailid=?;";
+                    //check for existing user with same email
+                    $sql="SELECT * FROM users WHERE emailid=?;";    
                     $stmt=mysqli_stmt_init($conn);
-                       //failed to execute
-                    if(!mysqli_stmt_prepare($stmt,$sql))
+
+                    //failed to execute
+                    if(!mysqli_stmt_prepare($stmt,$sql))            
                     {
                         header("Location: register.php?error=sqlerror");
                         exit();
@@ -61,7 +62,7 @@
                             $to_email = $email;
                             $subject = "OTP verification for TEQIP";
                             $body = "Your One Time Password Is:".$generateotp;
-                            $headers = "From: teqipthree@gmail.com";
+                            $headers = "From: yashhoke0602@gmail.com";
 
                             mail($to_email, $subject, $body, $headers); 
                         }        
@@ -73,7 +74,7 @@
     }
     else if($_GET['error']=="OTPmismatch")
     {
-        echo "<br><p><b>Wrong OTP</b></p><br>";
+        echo "<br>Wrong OTP</br>";
     }
     else
     {
@@ -88,68 +89,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
     <title>Verify</title>
-    <style type="text/css">
-                   .home {
-  background-image: url('bg.jpg');
-    background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-html, body {
-    height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
-}
-
-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-        #log{
-   
-    padding:60px 40px;
-    -webkit-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
-box-shadow: 0px 3px 66px 20px rgba(0,0,0,0.75);
-
-}
- #d{
-    position: absolute;
-top: 10px;
-right: 10px;
-color:black;
-margin:10px;
-
- }
-p{
-        color:red;
-     }
-    </style>
 </head>
-<body class="home">
-    <div class="container-fluid">
-        <div class="row">
-            <div clas="col-md-4 col-sm-4 col-xs-12"></div>
-                     <div clas="col-md-4 col-sm-4 col-xs-12">
-    <form action="verify.php" method="post" id="log">
-         <div class="form-group">
-        <input type="text" class="form-control" name="user-otp" placeholder="Enter OTP" required>
+<body>
+    <form action="verify.php" method="post">
+        <input type="text" name="user-otp" placeholder="Enter OTP" required>
         <br>
-        </div>
-        <button name="verify-button" class="btn btn-success btn-block">Verify</button>
+        <button name="verify-button">Verify</button>
         <br>
-        
+        <a href="register.php">register again</a>
     </form>
-    <a href="register.php" ><button name="home-button" class="btn btn-success btn-block">register again</button></a>
-</div>
-</div>
-</div>
-<a href="http://localhost/teqip/index.php"id="d"><button name="home-button">Home</button></a>
 </body>
 </html>
